@@ -73,6 +73,10 @@ function check_status(){
         }
     })
     .fail(function(data) {
+		$('form').append('<div id="alert" name="alert" class="alert alert-danger">Pi-Hole state toggling was not succesful</div>').hide().fadeIn("slow"); 
+		$('#alert').delay(2000).fadeOut(5000, function() {
+		  $(this).remove();
+		});    
          console.log(data);
     });
 	

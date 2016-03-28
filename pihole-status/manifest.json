@@ -21,6 +21,6 @@
       "chrome_style": false,
       "page": "options.html"
    },
-   "permissions": [ "storage" ],
+   "permissions": [ "tabs", "storage" ],
    "web_accessible_resources": [ "img/pihole128.png" ]
 }
