@@ -5,15 +5,15 @@
   "description": "This extension lets you start / stop Pi-Hole",
   "version": "1.0",
   "icons": { 
-		"16": "img/pihole16.png",
-		"48": "img/pihole48.png",
-		"128": "img/pihole128.png" 
+		"16": "img/pi16.png",
+		"48": "img/pi48.png",
+		"128": "img/pi128.png" 
   },
 
   "browser_action": {
         "default_icon": {                    
-			"19": "img/pihole48.png",          
-			"38": "img/pihole48.png"          
+			"19": "img/pi48.png",          
+			"38": "img/pi48.png"          
 		},
     "default_popup": "popup.html"
   },
@@ -21,6 +21,6 @@
       "chrome_style": false,
       "page": "options.html"
    },
-   "permissions": [ "tabs", "storage" ],
-   "web_accessible_resources": [ "img/pihole128.png" ]
+   "permissions": [ "http://*/*", "tabs", "storage" ],
+   "web_accessible_resources": [ "img/pi128.png" ]
 }
