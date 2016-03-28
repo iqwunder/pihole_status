@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<title>Pi-Hole On/Off Extension</title>
+				
+		<!-- Cascading Style Sheets -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/custom.css" rel="stylesheet" media="screen">
+	    <style type="text/css">
+	    	body {
+	        	min-width: 300px;
+	            height: 400px;
+	            /* overflow: hidden; */
+	         }
+	    </style>		
+	</head>
+	<body>
+		
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Pi-Hole</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="popup.html">On / Off</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Settings</a></li>
+			</ul>
+		</div>
+	</nav>  
+		<div class="container">
+			<div class="row">
+				<div class="col-12" style="height:10px;"></div>
+			</row>
+			<div class="row">
+				<div class="col-10 col-offset-1">
+					<div class="panel panel-success">
+						<div class="panel-heading">Pi-Hole Settings</div>
+						<div class="panel-body">
+							<form>
+  							  <fieldset class="form-group">
+							    <label for="formGroupExampleInput">Pi-Hole API URL:</label>
+							    <input type="text" id="apiurl" class="form-control">
+							  </fieldset>
+							  <fieldset class="form-group">
+							    <label for="formGroupExampleInput">Pi-Hole API Key:</label>
+							    <input type="text" id="apikey" class="form-control">
+							  </fieldset>						  
+							  <fieldset class="form-group">
+							  	<button id="clear" class="btn btn-sm btn-danger">Reset to Default</button>
+							    <button id="save" class="btn btn-sm btn-primary pull-right">Save</button>
+							  </fieldset>
+							</form>
+							<div id="status"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+		<!-- Scripts -->
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/settings.js"></script>
+</html>

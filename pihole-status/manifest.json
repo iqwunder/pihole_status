@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Pi-Hole On/Off extension",
+  "description": "This extension lets you start / stop Pi-Hole",
+  "version": "1.0",
+  "icons": { 
+		"16": "img/pihole16.png",
+		"48": "img/pihole48.png",
+		"128": "img/pihole128.png" 
+  },
+
+  "browser_action": {
+        "default_icon": {                    
+			"19": "img/pihole48.png",          
+			"38": "img/pihole48.png"          
+		},
+    "default_popup": "popup.html"
+  },
+   "options_ui": {
+      "chrome_style": false,
+      "page": "options.html"
+   },
+   "permissions": [ "storage" ],
+   "web_accessible_resources": [ "img/pihole128.png" ]
+}
