@@ -3,7 +3,7 @@
 
   "name": "Pi-Hole On/Off extension",
   "description": "This extension lets you start / stop Pi-Hole",
-  "version": "1.0",
+  "version": "2.0",
   "icons": { 
 		"16": "img/pi16.png",
 		"48": "img/pi48.png",
