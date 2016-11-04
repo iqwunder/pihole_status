@@ -1,30 +1,25 @@
-var apikey, apiurl;
+var apiurl;
 
 function restore_options() {
   // Use defaults if empty
   chrome.storage.sync.get({
-    apikey: '123456789',
     apiurl: 'http://192.168.178.63/admin/apiext.php'
   }, function(items) {
     document.getElementById('apiurl').value = items.apiurl;
-    document.getElementById('apikey').value = items.apikey;
   });
-
 }
 
 function toggleState() {
-	var apikey = document.getElementById('apikey').value
 	var apiurl = document.getElementById('apiurl').value
-
-	var statusdata = {
-      'piholekey': apikey,
-      'action': 'toggleState' 
-    };
+	var state = $('#status').bootstrapSwitch('state');
+	if (!state){
+		apiurl = apiurl + "?disable";
+	} else {
+		apiurl = apiurl + "?enable";
+	}
 	$.ajax({
       type:'POST',
       url: apiurl,
-      data: statusdata,
-      dataType: 'json',
     })    
 	.done(function(data) {
 		if($('#status').bootstrapSwitch('state')){
@@ -46,31 +41,19 @@ function toggleState() {
 
 }
 function check_status(){
-	var apikey = document.getElementById('apikey').value
-	var apiurl = document.getElementById('apiurl').value
-    
-	var statusdata = {
-      'piholekey': apikey,
-      'action': 'status' 
-    };
+	var apiurl = document.getElementById('apiurl').value    
+
 	$.ajax({
-      type:'POST',
-      url: apiurl,
-      data: statusdata,
-      dataType: 'json',
+      type:'GET',
+      url: apiurl + "?status",
     })    
 	.done(function(data) {
-        if ( ! data.success) {
-          if(data.errors.piholekey) {
-            $('form').append('<div id="alert" name="alert" class="alert alert-danger">' + data.errors.piholekey + '</div>').hide().fadeIn("slow"); 
-            $('#alert').delay(2000).fadeOut(5000, function() {
-              $(this).remove();
-            });
-          }
-        } else {
-			$('#status').bootstrapSwitch('toggleDisabled');
-			$('#status').bootstrapSwitch('state', data.state, true);			
-        }
+		$('#status').bootstrapSwitch('toggleDisabled');
+        if ( data.status == 1) {
+			$('#status').bootstrapSwitch('state', true, true);			
+		} else {
+			$('#status').bootstrapSwitch('state', false, true);			
+		}
     })
     .fail(function(data) {
 		$('form').append('<div id="alert" name="alert" class="alert alert-danger">Pi-Hole state toggling was not succesful</div>').hide().fadeIn("slow"); 
